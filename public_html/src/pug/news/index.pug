@@ -1,0 +1,19 @@
+block setVar
+    - var pageId = "news-index"
+    - var relativePath = "../"
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    style(src="../css/style.css")
+    title #{pages[pageId].title}
+    meta(name='description' content=pages[pageId].description)
+  body
+    include ../common/_header.pug
+
+    h1 ニュースページ
+
+    main
+      p ニュースページ
+
+    include ../common/_footer.pug

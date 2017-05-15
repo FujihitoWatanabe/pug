@@ -123,7 +123,7 @@ gulp.task("pug", function () {
         return JSON.parse(fs.readFileSync(`./pages.json`));
     }))
     .pipe(pug({
-      pretty: true
+      pretty:'    '
     }))
     .pipe(gulp.dest("dest/")) //出力先
 });

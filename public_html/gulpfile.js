@@ -71,7 +71,7 @@ gulp.task('scss', function() {
  ];
   return gulp.src(paths.scss + "**/*.scss")
     .pipe(postcss(processors))
-    .pipe(sass({outputStyle: "compressed"}))
+    .pipe(sass({outputStyle: "expanded"}))
     .pipe(gulp.dest(paths.css))
 });
 

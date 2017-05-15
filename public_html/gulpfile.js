@@ -106,7 +106,6 @@ gulp.task('imagemin', function(){
     .pipe(gulp.dest("dest/images/"));
 });
 
-
 //JS圧縮
 gulp.task("uglify", function() {
     return gulp.src("src/js/*.js")
@@ -118,12 +117,14 @@ gulp.task("uglify", function() {
 gulp.task("pug", function () {
     //var json = JSON.parse(fs.readFileSync("./pages.json"));
     gulp.src(
-        ["src/pug/**/*.pug",'!' + "src/pug/**/_*.pug"] //参照するディレクトリ、出力を除外するファイル
+      ["src/pug/**/*.pug",'!' + "src/pug/**/_*.pug"] //参照するディレクトリ、出力を除外するファイル
     )
     .pipe(data( file => {
         return JSON.parse(fs.readFileSync(`./pages.json`));
     }))
-    .pipe(pug())
+    .pipe(pug({
+      pretty: true
+    }))
     .pipe(gulp.dest("dest/")) //出力先
 });
 

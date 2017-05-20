@@ -18,9 +18,11 @@ html(lang="ja")
       ul
           li リスト
           li: a(href=`${relativePath}news/`) ニュースページへ遷移
-      picture
-          source(media="max-width:400px" srcset=`${relativePath}images/sp.jpg 400w` sizes="100vw")
-          source(media="max-width:600px" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
-          img(src=`${relativePath}images/pc.jpg`)
+      figure
+          picture
+              source(media="(max-width:400px)" srcset=`${relativePath}images/sp.jpg 400w` sizes="100vw")
+              source(media="(max-width:600px)" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
+              img(src=`${relativePath}images/pc.jpg`)
+          figcaption 画像キャプション
 
     include common/_footer.pug

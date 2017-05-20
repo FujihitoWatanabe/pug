@@ -99,7 +99,7 @@ gulp.task('imagemin', function(){
   var dstGlob = 'src/images/';
 
   var imageminOptions = {
-    //optimizationLevel: 7
+    optimizationLevel: 7
   };
   gulp.src(srcGlob )
     .pipe(imagemin( imageminOptions ))

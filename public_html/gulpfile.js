@@ -32,7 +32,7 @@ var cssnext = require("postcss-cssnext");
 var browserSync = require("browser-sync");
 var reload = browserSync.reload;
 //var debug = require("gulp-debug");
-//var plumber = require("gulp-plumber");
+var plumber = require("gulp-plumber");
 //var notify  = require("gulp-notify");
 var imagemin = require("gulp-imagemin");
 //var ejs = require("gulp-ejs");
@@ -99,7 +99,7 @@ gulp.task('imagemin', function(){
   var dstGlob = 'src/images/';
 
   var imageminOptions = {
-    optimizationLevel: 7
+    //optimizationLevel: 7
   };
   gulp.src(srcGlob )
     .pipe(imagemin( imageminOptions ))
@@ -119,6 +119,7 @@ gulp.task("pug", function () {
     gulp.src(
       ["src/pug/**/*.pug",'!' + "src/pug/**/_*.pug"] //参照するディレクトリ、出力を除外するファイル
     )
+    .pipe(plumber())
     .pipe(data( file => {
         return JSON.parse(fs.readFileSync(`./pages.json`));
     }))
@@ -149,11 +150,11 @@ gulp.task("watch", function() {
     //gulp.watch(".*css", ["autoprefixer"]);
     gulp.watch("src/scss/*.scss", ["scss"]);
     gulp.watch("src/js/*.js", ["uglify"]);
-    //gulp.watch("src/ejs/**/*.ejs", ["ejs"]);
     gulp.watch("src/pug/**/*.pug", ["pug"]);
+    //gulp.watch("src/ejs/**/*.ejs", ["ejs"]);
     browserSync.init({
         files: ["src/scss/","src/js/","src/pug/"],
-        proxy: "http://localhost/~pug-dev",
+        proxy: "http://localhost/~pug-dev/dest/",
         //open: "external"
     });
 });

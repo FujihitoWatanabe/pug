@@ -16,13 +16,13 @@ html(lang="ja")
       p.test クラスつける
       p#test IDをつける
       ul
-          li リスト
-          li: a(href=`${relativePath}news/`) ニュースページへ遷移
+        li リスト
+        li: a(href=`${relativePath}news/`) ニュースページへs遷移
       figure
-          picture
-              source(media="(max-width:400px)" srcset=`${relativePath}images/sp.jpg 400w` sizes="100vw")
-              source(media="(max-width:600px)" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
-              img(src=`${relativePath}images/pc.jpg`)
-          figcaption 画像キャプション
+        picture
+          source(media="(max-width:400px)" srcset=`${relativePath}images/sp.jpg 400w` sizes="100vw")
+          source(media="(max-width:600px)" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
+          img(src=`${relativePath}images/pc.jpg` alt="代替")
+        figcaption 画像キャプション
 
     include common/_footer.pug

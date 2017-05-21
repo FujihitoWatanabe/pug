@@ -1,7 +1,6 @@
-block setVar
-    - var dir = "-"
-    - var pageId = "index"
-    - var relativePath = "./"
+- var dir = "-"
+- var pageId = "index"
+- var relativePath = "./"
 doctype html
 html(lang="ja")
   include common/_head.pug
@@ -24,5 +23,9 @@ html(lang="ja")
           source(media="(max-width:600px)" srcset=`${relativePath}images/tab.jpg 600w` sizes="100vw")
           img(src=`${relativePath}images/pc.jpg` alt="代替")
         figcaption 画像キャプション
+      dl
+        dt
+          dfn 見出し
+        dd 説明
 
     include common/_footer.pug
